@@ -3,36 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inca Button</title>
+    <title>Ancient American Civilizations</title>
     <style>
-        #info {
-            display: none; /* Hidden by default */
-            margin-top: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            width: 300px;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffe29f, #ffa99f);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
         }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #4b2e83;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 900px; /* room for 3 buttons */
+            gap: 20px;
+        }
+
+        .civilization-btn {
+            padding: 14px 28px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #ff7f50;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1; /* buttons expand equally */
+        }
+
+        .civilization-btn:hover {
+            background-color: #ff5722;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+        }
+
+        .info-card {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+            transition: all 0.3s ease;
         }
     </style>
 </head>
 <body>
 
-    <button onclick="showInfo()">Inca</button>
+    <h1>Ancient American Civilizations</h1>
 
-    <div id="info">
-        The Inca Empire was the largest empire in pre-Columbian America, known for its advanced engineering, architecture, and road systems.
+    <div class="button-row">
+        <div>
+            <button class="civilization-btn" onclick="toggleInfo('inca')">Inca</button>
+            <div id="inca" class="info-card">
+                The Inca Empire was the largest empire in pre-Columbian America, known for its advanced engineering, architecture, and road systems.
+            </div>
+        </div>
+
+        <!-- Placeholder for future buttons -->
+        <div>
+            <button class="civilization-btn" onclick="toggleInfo('maya')">Maya</button>
+            <div id="maya" class="info-card">
+                Information about the Maya civilization will go here.
+            </div>
+        </div>
+
+        <div>
+            <button class="civilization-btn" onclick="toggleInfo('aztec')">Aztec</button>
+            <div id="aztec" class="info-card">
+                Information about the Aztec civilization will go here.
+            </div>
+        </div>
     </div>
 
     <script>
-        function showInfo() {
-            const infoDiv = document.getElementById('info');
-            // Toggle visibility
-            if (infoDiv.style.display === "none") {
+        function toggleInfo(id) {
+            const infoDiv = document.getElementById(id);
+            if (infoDiv.style.display === "none" || infoDiv.style.display === "") {
                 infoDiv.style.display = "block";
             } else {
                 infoDiv.style.display = "none";
